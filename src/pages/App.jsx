@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/devflix.png";
 import searchIcon from "../assets/search.svg";
-import MovieCard from "../componentes/movieCard/movieCard";
+import MovieCard from "../components/movieCard/movieCard";
 import "./App.css";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   const handleKeyPress = (e) => {
-    e === "Enter" && searchMovies(searchTerm);
+    e.key === "Enter" && searchMovies(searchTerm);
   };
 
   //   fetch(apiUrl)
@@ -34,6 +34,15 @@ const App = () => {
     <div id="app">
       <div className="logo">
         <img src={logo} alt="" />
+      </div>
+      <div className="search">
+        <input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyPress}
+          placeholder="Pesquise por filmes"
+        />
+        <img src={searchIcon} alt="" onClick={() => searchMovies(searchTerm)} />
       </div>
       {movies?.length > 0 ? (
         <div className="container">
