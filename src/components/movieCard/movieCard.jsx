@@ -30,7 +30,7 @@ const MovieCard = ({ movies }) => {
           <h3>{movie.Title}</h3>
         </div>
       </div>
-      {isModalOpen && <MovieDesc movies={movie} click={toggleModal}/>}
+      {isModalOpen && <MovieDesc movies={movie} click={toggleModal} />}
     </>
   );
 };

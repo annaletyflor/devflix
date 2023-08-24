@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --font-raleway: "Raleway", sans-serif;
+}
+
 /* Zerar tudo */
 * {
   margin: 0;
@@ -6,6 +12,7 @@
 }
 
 body {
+  font-family: var(--font-raleway);
   background: #212426;
 }
 
@@ -19,29 +26,27 @@ body {
 
 .logo {
   max-width: 100%;
+  overflow: hidden;
 }
 
 .logo img {
   width: 70%;
   height: auto;
-  display: block;
   margin: auto;
+  display: block;
 }
 
-/* Search */
 .search {
   width: 70%;
   margin: 4rem 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1.7rem;
-  border-radius: 4em;
+  padding: 1.5rem 1.75rem;
+  border-radius: 4rem;
   background: #1f2123;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
   -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 }
-
 .search input {
   flex: 1;
   border: none;
@@ -52,7 +57,6 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
 }
-
 .search img {
   width: 35px;
   height: 35px;
@@ -66,7 +70,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  color: #f9d3b4;
+  color: #f9f9f9;
 }
 
 .container {
@@ -82,6 +86,7 @@ body {
   .app {
     padding: 4rem 2rem;
   }
+
   .search {
     padding: 1rem 1.75rem;
     width: 100%;

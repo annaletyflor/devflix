@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/devflix.png";
 import searchIcon from "../assets/search.svg";
-import MovieCard from "../components/movieCard/movieCard";
 import "./App.css";
+import MovieCard from "../components/movieCard/movieCard";
+import Footer from "../components/footer/footer";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,21 +16,22 @@ const App = () => {
   useEffect(() => {
     searchMovies("Batman");
   }, []);
+
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
     const data = await response.json();
 
-    console.log(data);
+    console.log(data.Search);
     setMovies(data.Search);
   };
-
   const handleKeyPress = (e) => {
-    e.key === "Enter" && searchMovies(searchTerm);
+    e === "Enter" && searchMovies(searchTerm);
+    searchMovies(searchTerm);
   };
 
-  //   fetch(apiUrl)
-  //     .then((response)=>response.json())
-  //     .then((data) => console.log(data));
+  //fetch(apiUrl)
+  // .then((Response) => Response.json())
+  // .then((data) => console.log(data));
 
   return (
     <div id="app">
@@ -40,9 +43,13 @@ const App = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyPress}
-          placeholder="Pesquise por filmes"
+          placeholder="Pesquisar por filmes"
         />
-        <img src={searchIcon} alt="" onClick={() => searchMovies(searchTerm)} />
+        <img
+          src={searchIcon}
+          alt="Icone de pesquisa"
+          onClick={() => searchMovies(searchTerm)}
+        />
       </div>
       {movies?.length > 0 ? (
         <div className="container">
@@ -52,10 +59,12 @@ const App = () => {
         </div>
       ) : (
         <div className="empty">
-          <h2>Nenhum filme foi encontrado!😨</h2>
+          <h2>Nenhum filme encontrado 😏</h2>
         </div>
       )}
+      <Footer link={"https:github.com.br"}>AnnaLetyFlor</Footer>
     </div>
   );
 };
+
 export default App;
